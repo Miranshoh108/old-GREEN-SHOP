@@ -20,13 +20,8 @@ import advice from "../assets/imgs/advice.png";
 import advice1 from "../assets/imgs/advice1.png";
 import advice2 from "../assets/imgs/advice2.png";
 import Wishlist from "../components/profile/profile-pages/wishlist";
-import {
-  DashboardOutlined,
-  EnvironmentOutlined,
-  HeartOutlined,
-  ShoppingOutlined,
-  UserOutlined,
-} from "@ant-design/icons";
+import * as Icons from "@ant-design/icons";
+
 import Order from "../components/profile/profile-pages/order";
 import Adress from "../components/profile/profile-pages/adress";
 import ProductsProfile from "../components/profile/profile-pages/products";
@@ -197,35 +192,35 @@ export const path_profile: PathProfileType[] = [
     id: 1,
     path: "",
     Component: Details,
-    Icon: UserOutlined,
+    Icon: Icons.UserOutlined,
     title: "Account Details",
   },
   {
     id: 2,
     path: "my-products",
     Component: ProductsProfile,
-    Icon: ShoppingOutlined,
+    Icon: Icons.ShoppingOutlined,
     title: "My Products",
   },
   {
     id: 3,
     path: "address",
     Component: Adress,
-    Icon: EnvironmentOutlined,
-    title: "Adress",
+    Icon: Icons.EnvironmentOutlined,
+    title: "Address",
   },
   {
     id: 4,
     path: "wishlist",
     Component: Wishlist,
-    Icon: HeartOutlined,
+    Icon: Icons.HeartOutlined,
     title: "Wishlist",
   },
   {
     id: 5,
     path: "track-order",
     Component: Order,
-    Icon: DashboardOutlined,
+    Icon: Icons.DashboardOutlined,
     title: "Track Order",
   },
 ];

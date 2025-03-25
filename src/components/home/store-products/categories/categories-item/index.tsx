@@ -14,9 +14,10 @@ const CategoriesItem: FC<CategoryType> = (props) => {
       category: props.route_path,
       type: typeParam,
       sort: typePrice,
-      range_min,
-      range_max,
+      range_min: String(range_min),
+      range_max: String(range_max),
     });
+    
   };
 
   return (

@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { useSearchParamsHandler } from "../../../../../generic/searchParams";
+// import { useSearchParamsHandler } from "../../../../../generic/searchParams";
 import { Slider } from "antd";
+import { searchParam } from "../../../../../generic/searchParam";
 
 const PriceParam = () => {
-  const { getParam, setParam } = useSearchParamsHandler();
+  const { getParam, setParam } = searchParam();
   const range_min: number = Number(getParam("range_min")) || 0;
   const range_max: number = Number(getParam("range_max")) || 1000;
   const typeParam: string = getParam("type") || "all-plants";
@@ -13,11 +14,11 @@ const PriceParam = () => {
 
   const setPriceParam = () => {
     setParam({
-      category: categoryPath,
-      type: typeParam,
-      sort: typePrice,
-      range_min: price[0],
-      range_max: price[1],
+      category: categoryPath || "",
+      type: typeParam || "",
+      sort: typePrice || "",
+      range_min: String(price[0]), // String formatda yozish kerak
+      range_max: String(price[1]), // String formatda yozish kerak
     });
   };
 

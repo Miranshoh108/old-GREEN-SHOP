@@ -19,10 +19,11 @@ const Register = () => {
     (state) => state.modalSlice
   );
 
-  const notify = notificationApi();
+  const nottify = notificationApi();
+  
 
   const onFinish = (e: RegisterType) => {
-    if (e.password !== e.confirm_password) return notify("password");
+    if (e.password !== e.confirm_password) return nottify("passowrd");
     dispatch(setAuthorizationModalVisibility({ open: true, isLoading: true }));
 
     const { name, surname, email, password } = e;

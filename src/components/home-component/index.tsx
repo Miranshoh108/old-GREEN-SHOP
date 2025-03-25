@@ -3,7 +3,7 @@ import Posts from "../home/posts/posts";
 import Hero from "./hero";
 import StoreProducts from "./store-products";
 
-const HomeComponent = () => {
+const HomeComponent: React.FC = () => {
   return (
     <div className="w-[90%] m-auto">
       <Hero />

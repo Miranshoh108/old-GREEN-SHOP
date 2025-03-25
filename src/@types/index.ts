@@ -2,6 +2,7 @@ export interface FieldType {
   email?: string;
   password?: string;
 }
+
 export interface RegisterType {
   name?: string;
   surname: string;
@@ -60,6 +61,8 @@ export interface CategoryType {
   title: string;
   __v: number;
   _id: string;
+  range_min?: number;
+  range_max?: number;
 }
 export interface DiscounType {
   discoount_up_to: number;
@@ -167,7 +170,7 @@ export interface PathProfileType {
   title: string;
   path: string;
   Component: React.FC;
-  Icon: React.ForwardRefExoticComponent<React.RefAttributes<HTMLDivElement>>;
+  Icon: React.FC;
 }
 export interface MakeOrderType {
   name: string;

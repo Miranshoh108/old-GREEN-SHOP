@@ -1,7 +1,7 @@
 import { Select } from "antd";
 import { title_category } from "../../../../../utils";
 // import { useSearchParamsHandler } from "../../../../../generic/searchParams";
-import {searchParam} from "../../../../../generic/searchParam"
+import { searchParam } from "../../../../../generic/searchParam";
 const ProductsTitle = () => {
   const { setParam, getParam } = searchParam();
   const typeParam: string = getParam("type") || "all-plants";
@@ -14,8 +14,8 @@ const ProductsTitle = () => {
       category: categoryPath,
       type: typeParam,
       sort: e,
-      range_min,
-      range_max,
+      range_min: String(range_min), // ✅ String formatda
+      range_max: String(range_max), // ✅ String formatda
     });
   };
   const setTitle = (type: string) => {

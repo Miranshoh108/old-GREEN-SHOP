@@ -20,9 +20,8 @@
 // export { signInWithGoogle };
 
 import { initializeApp } from "firebase/app";
-import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
-// Firebase konfiguratsiyasini .env dan olish
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -30,9 +29,18 @@ const firebaseConfig = {
   storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
 };
 
-// Firebase'ni ishga tushirish
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const signInWithGoogle = new GoogleAuthProvider();
+const provider = new GoogleAuthProvider();
+
+const signInWithGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, provider);
+    return result;
+  } catch (error) {
+    console.error("Google login error:", error);
+    throw error;
+  }
+};
 
 export { app, auth, signInWithGoogle };

@@ -99,34 +99,32 @@ const useRegister = () => {
   });
 };
 
-const useRegisterWithGoogle = () => {
-  const axios = useAxios();
-  const notify = notificationApi();
-  const dispatch = useReduxDispatch();
-  return useMutation({
-    mutationFn: async () => {
-      const response = await signInWithGoogle();
-      return axios({
-        url: "/user/sign-up/google",
-        method: "POST",
-        body: { email: response.user.email },
-      });
-    },
-    onSuccess: ({ data }: { data: { token: string; user: AuthUser } }) => {
-      const { token } = data;
-      localStorage.setItem("token", token);
-      notify("register");
-      dispatch(
-        setAuthorizationModalVisibility({ open: false, isLoading: false })
-      );
-    },
-    onError: (error) => {
-      setAuthorizationModalVisibility({ open: true, isLoading: false });
-      notify(406);
-      console.log(error);
-    },
-  });
-};
+// const loginWithGoogle = () => {
+//   const axios = useAxios();
+//   const dispatch = useDispatch();
+//   const notify = notificationApi();
+
+//   return useMutation({
+//     mutationFn: async () => {
+//       const response = await signInWithGoogle(); // Foydalanuvchi Google orqali login qiladi
+//       return axios({
+//         url: "/user/sign-in/google",
+//         method: "POST",
+//         data: { email: response.user.email },
+//       });
+//     },
+//     onSuccess: ({ data }: { data: { token: string; user: AuthUser } }) => {
+//       dispatch(setAuthorizationModalVisibility({ open: false, isLoading: false }));
+//       localStorage.setItem("token", data.token);
+//       notify("login");
+//     },
+//     onError: (error: { status: number }) => {
+//       if (error.status === 409) notify(409);
+//       dispatch(setAuthorizationModalVisibility({ open: true, isLoading: false }));
+//     },
+//   });
+// };
+
 
 const useGetCoupon = () => {
   const axios = useAxios();
@@ -240,7 +238,6 @@ export {
   useLogin,
   loginWithGoogle,
   useRegister,
-  useRegisterWithGoogle,
   useGetCoupon,
   useMakeOrderQuery,
   useFollwerUser,
