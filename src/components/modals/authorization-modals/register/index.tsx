@@ -8,7 +8,7 @@ import { useReduxDispatch, useReduxSelector } from "../../../../hooks/useRedux";
 import { notificationApi } from "../../../../generic/notification";
 import {
   useRegister,
-  useRegisterWithGoogle,
+  loginWithGoogle,
 } from "../../../../hooks/useQuery/useQueryActions";
 import { setAuthorizationModalVisibility } from "../../../../redux/modal-slice";
 
@@ -30,7 +30,7 @@ const Register = () => {
     mutate({ data: { name, surname, email, password } });
   };
 
-  const { mutate: registerWithGoogle } = useRegisterWithGoogle();
+  const { mutate: registerWithGoogle } = loginWithGoogle();
 
   return (
     <div className="w-[65%] m-auto mt-[5.3rem]">
