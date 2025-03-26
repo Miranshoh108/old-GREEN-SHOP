@@ -9,6 +9,7 @@ export interface RegisterType {
   email?: string;
   password?: string;
   confirm_password?: string;
+  phone_number?: number | string;
 }
 
 export interface WishListItemType {

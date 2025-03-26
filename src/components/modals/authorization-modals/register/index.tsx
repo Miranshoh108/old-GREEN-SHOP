@@ -20,14 +20,13 @@ const Register = () => {
   );
 
   const nottify = notificationApi();
-  
 
   const onFinish = (e: RegisterType) => {
     if (e.password !== e.confirm_password) return nottify("passowrd");
     dispatch(setAuthorizationModalVisibility({ open: true, isLoading: true }));
 
-    const { name, surname, email, password } = e;
-    mutate({ data: { name, surname, email, password } });
+    const { name, surname, email, password, phone_number } = e;
+    mutate({ data: { name, surname, email, password, phone_number } });
   };
 
   const { mutate: registerWithGoogle } = loginWithGoogle();
@@ -64,12 +63,21 @@ const Register = () => {
             />
           </Form.Item>
           <Form.Item<RegisterType>
+            name="phone_number"
+            rules={[{ required: true, message: "Please input your phone number!" }]}
+          >
+            <Input
+              className="border-[#EAEAEA] h-[4rem] hover:border-[#46A358] focus:border-[#46A358]"
+              placeholder="phone_number"
+            />
+          </Form.Item>
+          <Form.Item<RegisterType>
             name="email"
             rules={[{ required: true, message: "Please input your email!" }]}
           >
             <Input
               className="border-[#EAEAEA] h-[4rem] hover:border-[#46A358] focus:border-[#46A358]"
-              placeholder="enter your emile adress"
+              placeholder="enter your emile adress" 
             />
           </Form.Item>
           <Form.Item<RegisterType>

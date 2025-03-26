@@ -1,25 +1,25 @@
-// import { Empty } from "antd";
+import { Empty } from "antd";
 import { CartType } from "../../../../@types";
-// import { useLoader } from "../../../../generic/loading";
+import { useLoader } from "../../../../generic/loading";
 import { useQuerHandler } from "../../../../hooks/useQuery";
-// import Card from "../../../home-component/store-products/products/card";
+import Card from "../../../home-component/store-products/products/card";
 
 const ProductsProfile = () => {
   const {
     data,
-    // isLoading,
-    // isError,
+    isLoading,
+    isError,
   }: { data?: CartType[]; isLoading: boolean; isError: boolean } =
     useQuerHandler({
       pathname: "my-products",
       url: "/user/products",
     });
   console.log(data);
-  // const { cart_loading } = useLoader();
+  const { cart_loading } = useLoader();
 
   return (
     <div>
-      {/* <div className="grid grid-cols-3 gap-10">
+      <div className="grid grid-cols-3 gap-10">
       {isLoading || isError ? (
         cart_loading()
       ) : !data?.length ? (
@@ -29,7 +29,7 @@ const ProductsProfile = () => {
       ) : (
         data?.map((value: CartType) => <Card key={value?._id} {...value} />)
       )}
-    </div> */}
+    </div>
     </div>
   );
 };
