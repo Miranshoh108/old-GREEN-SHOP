@@ -26,14 +26,14 @@ const ProfileDashboard = () => {
   };
 
   return (
-    <div className="bg-[#FBFBFB] h-fit text-xl p-[15px] w-[350px] max-md:hidden">
-      <h1 className="font-bold">My Account</h1>
-      <div className="pb-5 border-b border-[#45A358]">
+    <div className="bg-[#FBFBFB] h-fit text-xl p-[15px] w-[450px] max-md:hidden">
+      <h1 className="font-bold text-[20px]">My Account</h1>
+      <div className="pb-5 border-b border-[#45A358] text-[15px] mt-5">
         {path_profile.map(({ Icon, title, path, id }) => (
           <div
             key={id}
             onClick={() => navigate(`/profile/${path}`)}
-            className={`flex item-center gap-3  hover:bg-white p-3 hover:text-[#45A358] cursor-pointer hover:border-l-4 border-[#45A358] ${
+            className={`flex item-center gap-3 mt-3 !text-[20px]  hover:bg-white p-3 hover:text-[#45A358] cursor-pointer hover:border-l-4 border-[#45A358] ${
               pathname.slice(9) === path && activeStyle
             }`}
           >
@@ -44,7 +44,7 @@ const ProfileDashboard = () => {
       </div>
       <button
         onClick={logOut}
-        className="flex items-center gap-3 cursor-pointer pl-[5px] w-full h-[40px] mt-[20px] text-base text-red-600"
+        className="flex items-center gap-3 !text-[15px] cursor-pointer pl-[5px] w-full h-[40px] mt-[20px] text-base text-red-600"
       >
         <LogoutOutlined />
         Log out
