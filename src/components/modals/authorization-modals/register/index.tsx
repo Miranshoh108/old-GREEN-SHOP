@@ -64,7 +64,9 @@ const Register = () => {
           </Form.Item>
           <Form.Item<RegisterType>
             name="phone_number"
-            rules={[{ required: true, message: "Please input your phone number!" }]}
+            rules={[
+              { required: true, message: "Please input your phone number!" },
+            ]}
           >
             <Input
               className="border-[#EAEAEA] h-[4rem] hover:border-[#46A358] focus:border-[#46A358]"
@@ -77,7 +79,7 @@ const Register = () => {
           >
             <Input
               className="border-[#EAEAEA] h-[4rem] hover:border-[#46A358] focus:border-[#46A358]"
-              placeholder="enter your emile adress" 
+              placeholder="enter your emile adress"
             />
           </Form.Item>
           <Form.Item<RegisterType>

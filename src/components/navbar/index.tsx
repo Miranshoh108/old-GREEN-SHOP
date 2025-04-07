@@ -28,11 +28,22 @@ const Navbar = () => {
           <nav className="header-center h-full font-normal text-[1.6rem] text-[#3D3D3D] flex items-center gap-[5rem]">
             <h3
               onClick={() => navigate("/")}
-              className="font-bold !text-[#46A358] menu-item active cursor-pointer"
+              className={`menu-item ${
+                location.pathname === "/"
+                  ? "!text-[#46A358] active"
+                  : "cursor-pointer"
+              }`}
             >
               Home
             </h3>
-            <h3 onClick={() => navigate("/blog")} className="cursor-pointer">
+            <h3
+              onClick={() => navigate("/blog")}
+              className={`menu-item ${
+                location.pathname === "/blog"
+                  ? "!text-[#46A358] active"
+                  : "cursor-pointer"
+              }`}
+            >
               Blog
             </h3>
           </nav>
