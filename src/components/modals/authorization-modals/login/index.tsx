@@ -48,7 +48,7 @@ const Login = () => {
           >
             <Input
               className="border-[#EAEAEA] h-[4rem] hover:border-[#46A358] focus:border-[#46A358]"
-              placeholder="almamun_uxui@outlook.com"
+              placeholder="muhammad2005@gmail.com"
             />
           </Form.Item>
 
